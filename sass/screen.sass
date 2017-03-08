@@ -1,0 +1,59 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+// задает базовую разметку html
+@import "compass/reset" 
+
+// урок об переменных...
+
+$color: red
+$fsize: 12
+$fsize-px: 12px
+// создание своего миксина @mixin 3px - значение по умолчанию
+=border-radius($radius: 3px)
+	-webkit-border-radius: $radius
+	-moz-border-radius:    $radius
+	-ms-border-radius:     $radius
+	-o-border-radius:      $radius
+	border-radius:         $radius  
+// создание миксина для задания цветов ссылке в разных состояниях
+=links($link, $hover, $active, $visited)
+	a
+		color: $link
+		&:hover // тот-же елемент с псевдоклассом :hover 
+			color: $hover
+		&:active
+			color: $active
+		&:visited
+			color: $visited
+// создание миксина для добавления картинки на задний фон
+=bg($img, $type: png)
+	background: url(../img/#{$img}.#{$type}) no-repeat 0 0
+
+//------------------------------------------------------------			
+// вложенные блоки в SASS разделяются по уровню
+h1 
+	color: #fff
+	
+	span
+		color: #fafafa
+
+a  
+	color: $color
+	border: 1px solid $color
+	font-size: $fsize + px
+
+.span1
+	font-size: $fsize-px
+
+.span2
+	font-size: ($fsize-px + 2) /2
+	// вызов миксина
+	+border-radius(5px)
+
++links(blue, red, green, yellow)
+
+a
+	+bg(house-icon, png)
