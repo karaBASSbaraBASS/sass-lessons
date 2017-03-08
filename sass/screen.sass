@@ -6,127 +6,58 @@
 // задает базовую разметку html
 @import "compass/reset" 
 
-// урок об переменных...
+@import "compass/typography/links"
+@import "compass/css3/selection"
+// подключим утилиту спрайт-нарезальщика
+@import "compass/utilities/sprites"
+// укажем папку с иконками (images_dir из конфига), спрайт содастся в корне папки с проектом
+@import "../img/*.png"
+// создаем в css классы по именам иконок с соответсвующими background-position в спрайте
+//+all-img-sprites
+// параметр выставляющий компактную расстановку иконок
+//$img-layout: horizontal
+// параметр меняющий имя класса иконок на свой, по умолчанию это имя папки
+//$img-sprite-base-class: ".social-sprite"
 
-$color: red
-$fsize: 12
 $fsize-px: 12px
-// создание своего миксина @mixin 3px - значение по умолчанию
-=border-radius($radius: 3px)
-	-webkit-border-radius: $radius
-	-ms-border-radius:     $radius
-	-o-border-radius:      $radius
-	border-radius:         $radius  
-// создание миксина для задания цветов ссылке в разных состояниях
-=links($link, $hover, $active, $visited)
-	a
-		color: $link
-		&:hover // тот-же елемент с псевдоклассом :hover 
-			color: $hover
-		&:active
-			color: $active
-		&:visited
-			color: $visited
-// создание миксина для добавления картинки на задний фон
-=bg($img, $type: png)
-	background: url(../img/#{$img}.#{$type}) no-repeat 0 0
-// создание миксина для clearfix	
-=clr 
-	display: inline-block
-	&:after
-		content: "."
-		display: block
-		height: 0
-		clear: both
-		visibility: hidden
-		* html & 
-			height: 1px
-		
-// миксин с треугольниками
-
-=arr($width, $height, $bg, $direction)
-	width: 0px
-	height: 0px
-	border-style: solid
-	@if $direction == t
-		border-width: 0 $width / 2 + px $height + px $width / 2 + px
-		border-color: transparent transparent $bg transparent
-	@if $direction == r
-		border-width: $height / 2 + px 0 $height / 2 + px $width + px
-		border-color: transparent transparent transparent $bg
-	@if $direction == b
-		border-width: $height + px $width / 2 + px 0 $width / 2 + px
-		border-color: $bg transparent transparent transparent
-	@if $direction == l
-		border-width: $height / 2 + px $width + px $height / 2 + px 0
-		border-color: transparent $bg transparent transparent
-	@if $direction == tl
-		border-width: $height + px $width + px 0 0
-		border-color: $bg transparent transparent transparent
-	@if $direction == tr
-		border-width: 0 $width + px $height + px 0
-		border-color: transparent $bg transparent transparent
-	@if $direction == br
-		border-width: 0 0 $height + px $width + px
-		border-color: transparent transparent $bg transparent
-	@if $direction == bl
-		border-width: $height + px 0 0 $width + px
-		border-color: transparent transparent transparent $bg
-
+$blue: #0074d9
+ 
 //------------------------------------------------------------			
-// вложенные блоки в SASS разделяются по уровню
-h1 
-	color: #fff
-	
-	span
-		color: #fafafa
+// стилизованное выделение темно-синим/белые буквы
+*
+	@include selection($blue, white)
 
-a  
-	color: $color
-	border: 1px solid $color
-	font-size: $fsize + px
-
-.span1
-	font-size: $fsize-px
-
-.span2
-	font-size: ($fsize-px + 2) /2
-	// вызов миксина
-	+border-radius(5px)
-
-+links(blue, red, green, yellow)
-
+body 
+	font-weight: 300
+	font-size: 20px
+	line-height: 1.5
+	-webkit-font-smoothing: antialiased 
+ 
+h1
+	font-weight: 100
+	font-size: 52px
+ 	
 a
-	+bg(house-icon, png)
+	padding-left: 30px
+	color: $blue
+	text-decoration: none
+	&:hover
+		text-decoration: underline
+	//&[href*="vk.com"]
+	//	+img-sprite(vk)
+	
+ 		
+ul
+	list-style: none
 	
 .wrapper
-	width: 1000px
-	margin: 0 auto
-	padding: 100px 0
+	max-width: 700px
+	margin: 70px auto
 	
-$width: 100
-$gutter: 10 //паддинги внутри колонок
-$columns: 12 //количество колонок
+// создаем цыкл для создания спрайта с социальными иконками	
+@each $ic in vk, tw, fb, ok
+	.icon-#{$ic}
+		+img-sprite(#{$ic})
+	
+		
 
-.container
-	margin-left: auto
-	margin-right: auto
-	padding-left: $gutter + px
-	padding-right: $gutter + px
-	.row
-		margin-left: -$gutter + px
-		margin-right: -$gutter + px
-		+clr
-		&>[class*="col-"] // касается каждого класса col- в классе row 
-			position: relative
-			min-height: 1px
-			float: left
-			padding-left: $gutter + px
-			padding-right: $gutter + px
-			
-@for $i from 1 through $columns //здесь задается диапазон от 1 до 12 включительно, есле не включать то было-бы to	
-	.col-#{$i}
-		width: (($width / $columns) * $i) * 1%
-
-.t		
-	+arr(30, 30, red, r)
