@@ -67,55 +67,164 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 37, ../sass/screen.sass */
+/* line 78, ../sass/screen.sass */
 h1 {
   color: #fff;
 }
-/* line 40, ../sass/screen.sass */
+/* line 81, ../sass/screen.sass */
 h1 span {
   color: #fafafa;
 }
 
-/* line 43, ../sass/screen.sass */
+/* line 84, ../sass/screen.sass */
 a {
   color: red;
   border: 1px solid red;
   font-size: 12px;
 }
 
-/* line 48, ../sass/screen.sass */
+/* line 89, ../sass/screen.sass */
 .span1 {
   font-size: 12px;
 }
 
-/* line 51, ../sass/screen.sass */
+/* line 92, ../sass/screen.sass */
 .span2 {
   font-size: 7px;
   -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
 }
 
-/* line 23, ../sass/screen.sass */
+/* line 22, ../sass/screen.sass */
 a {
   color: blue;
 }
-/* line 25, ../sass/screen.sass */
+/* line 24, ../sass/screen.sass */
 a:hover {
   color: red;
 }
-/* line 27, ../sass/screen.sass */
+/* line 26, ../sass/screen.sass */
 a:active {
   color: green;
 }
-/* line 29, ../sass/screen.sass */
+/* line 28, ../sass/screen.sass */
 a:visited {
   color: yellow;
 }
 
-/* line 58, ../sass/screen.sass */
+/* line 99, ../sass/screen.sass */
 a {
   background: url(../img/house-icon.png) no-repeat 0 0;
+}
+
+/* line 102, ../sass/screen.sass */
+.wrapper {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+/* line 111, ../sass/screen.sass */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* line 116, ../sass/screen.sass */
+.container .row {
+  margin-left: -10px;
+  margin-right: -10px;
+  display: inline-block;
+}
+/* line 36, ../sass/screen.sass */
+.container .row:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 42, ../sass/screen.sass */
+* html .container .row:after {
+  height: 1px;
+}
+/* line 120, ../sass/screen.sass */
+.container .row > [class*="col-"] {
+  position: relative;
+  min-height: 1px;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* line 128, ../sass/screen.sass */
+.col-1 {
+  width: 8.33333%;
+}
+
+/* line 128, ../sass/screen.sass */
+.col-2 {
+  width: 16.66667%;
+}
+
+/* line 128, ../sass/screen.sass */
+.col-3 {
+  width: 25%;
+}
+
+/* line 128, ../sass/screen.sass */
+.col-4 {
+  width: 33.33333%;
+}
+
+/* line 128, ../sass/screen.sass */
+.col-5 {
+  width: 41.66667%;
+}
+
+/* line 128, ../sass/screen.sass */
+.col-6 {
+  width: 50%;
+}
+
+/* line 128, ../sass/screen.sass */
+.col-7 {
+  width: 58.33333%;
+}
+
+/* line 128, ../sass/screen.sass */
+.col-8 {
+  width: 66.66667%;
+}
+
+/* line 128, ../sass/screen.sass */
+.col-9 {
+  width: 75%;
+}
+
+/* line 128, ../sass/screen.sass */
+.col-10 {
+  width: 83.33333%;
+}
+
+/* line 128, ../sass/screen.sass */
+.col-11 {
+  width: 91.66667%;
+}
+
+/* line 128, ../sass/screen.sass */
+.col-12 {
+  width: 100%;
+}
+
+/* line 131, ../sass/screen.sass */
+.t {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 15px 0 15px 30px;
+  border-color: transparent transparent transparent red;
 }
