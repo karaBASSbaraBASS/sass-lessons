@@ -2,7 +2,6 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,59 +23,106 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
 
-/* line 8, ../sass/screen.scss */
-h1 {
-  color: #fff;
-}
-/* line 10, ../sass/screen.scss */
-h1 span {
-  color: #fafafa;
+.img-sprite, .icon-vk, .icon-tw, .icon-fb, .icon-ok {
+  background-image: url('../img/../img-s1c34ddfd1c.png');
+  background-repeat: no-repeat;
 }
 
-/* line 16, ../sass/screen.scss */
+*::-moz-selection {
+  color: white;
+  background-color: #0074d9;
+}
+*::selection {
+  color: white;
+  background-color: #0074d9;
+}
+
+body {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 52px;
+}
+
 a {
-  color: red;
+  padding-left: 30px;
+  color: #0074d9;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+}
+
+.wrapper {
+  max-width: 700px;
+  margin: 70px auto;
+}
+
+.icon-vk {
+  background-position: 0 -37px;
+}
+
+.icon-tw {
+  background-position: 0 -27px;
+}
+
+.icon-fb {
+  background-position: 0 0;
+}
+
+.icon-ok {
+  background-position: 0 -12px;
+}
+
+a {
+  border-top: 2px solid #ccc;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 5px 0 0 10px;
+  border-color: transparent transparent transparent red;
 }

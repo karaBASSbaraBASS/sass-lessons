@@ -1,0 +1,67 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+// подключаем наши миксины
+@import mixins
+
+// задает базовую разметку html
+@import "compass/reset" 
+
+@import "compass/typography/links"
+@import "compass/css3/selection"
+// подключим утилиту спрайт-нарезальщика
+@import "compass/utilities/sprites"
+// укажем папку с иконками (images_dir из конфига), спрайт содастся в корне папки с проектом
+@import "../img/*.png"
+// создаем в css классы по именам иконок с соответсвующими background-position в спрайте
+//+all-img-sprites
+// параметр выставляющий компактную расстановку иконок
+//$img-layout: horizontal
+// параметр меняющий имя класса иконок на свой, по умолчанию это имя папки
+//$img-sprite-base-class: ".social-sprite"
+
+$fsize-px: 12px
+$blue: #0074d9
+ 
+//------------------------------------------------------------			
+// стилизованное выделение темно-синим/белые буквы
+*
+	@include selection($blue, white)
+
+body 
+	font-weight: 300
+	font-size: 20px
+	line-height: 1.5
+	-webkit-font-smoothing: antialiased 
+ 
+h1
+	font-weight: 100
+	font-size: 52px
+ 	
+a
+	padding-left: 30px
+	color: $blue
+	text-decoration: none
+	&:hover
+		text-decoration: underline
+	//&[href*="vk.com"]
+	//	+img-sprite(vk)
+// пример задания изображений ссылкам с выборкой по адресу	
+ 		
+ul
+	list-style: none
+	
+.wrapper
+	max-width: 700px
+	margin: 70px auto
+	
+// создаем цыкл для создания спрайта с социальными иконками	
+@each $ic in vk, tw, fb, ok
+	.icon-#{$ic}
+		+img-sprite(#{$ic})
+	 
+a
+	+br(top, 2px, #ccc)
+	&:after		
+	+arr(10, 5, red, bl)
