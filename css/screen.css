@@ -117,3 +117,12 @@ ul {
 .icon-ok {
   background-position: 0 -12px;
 }
+
+a {
+  border-top: 2px solid #ccc;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 5px 0 0 10px;
+  border-color: transparent transparent transparent red;
+}
